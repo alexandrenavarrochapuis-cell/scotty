@@ -1,0 +1,360 @@
+/* ============================================
+   SCOTTY AI — SCROLL ANIMATIONS & MICRO-INTERACTIONS
+   ============================================ */
+
+/* ---------- Base animation states ---------- */
+/* Only hide elements when JS has confirmed it's active */
+.js-animations .reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.js-animations .reveal.from-left {
+  transform: translateX(-48px);
+}
+.js-animations .reveal.from-right {
+  transform: translateX(48px);
+}
+.js-animations .reveal.from-scale {
+  transform: scale(0.9) translateY(20px);
+}
+.js-animations .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+/* When JS is off, visible class is still harmless */
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Stagger delays ---------- */
+.stagger-1  { transition-delay: 0.08s }
+.stagger-2  { transition-delay: 0.16s }
+.stagger-3  { transition-delay: 0.24s }
+.stagger-4  { transition-delay: 0.32s }
+.stagger-5  { transition-delay: 0.40s }
+.stagger-6  { transition-delay: 0.48s }
+
+/* ---------- Hero enhancements / Floating dashboard mock ---------- */
+@keyframes floatDash {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+.dashboard-mock {
+  animation: floatDash 6s ease-in-out infinite;
+}
+
+/* Glowing ring under dashboard */
+.hero-visual {
+  position: relative;
+}
+.hero-visual::after {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 40px;
+  background: radial-gradient(ellipse at center, rgba(190,35,50,.18) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(8px);
+  pointer-events: none;
+  animation: glowPulse 4s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scaleX(1); }
+  50%       { opacity: 1;   transform: translateX(-50%) scaleX(1.1); }
+}
+
+/* ---------- Trust bar marquee-style hover ---------- */
+.trust-logos {
+  position: relative;
+}
+.trust-logo-item {
+  transition: opacity 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+/* Dim others on hover */
+.trust-logos:hover .trust-logo-item:not(:hover) {
+  opacity: 0.4;
+}
+
+/* ---------- Feature card flips / glow ---------- */
+.feature-card {
+  position: relative;
+  overflow: hidden;
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(190,35,50,.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.feature-card:hover::before {
+  opacity: 1;
+}
+.feature-card .feature-icon svg {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.feature-card:hover .feature-icon svg {
+  transform: scale(1.15) rotate(-4deg);
+}
+
+/* ---------- Stats counters section ---------- */
+.stats-counter {
+  padding: 80px 0;
+  background: linear-gradient(135deg, var(--slate-900) 0%, #0d1f35 100%);
+  position: relative;
+  overflow: hidden;
+}
+.stats-counter::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(190,35,50,.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.stats-counter::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; right: -80px;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(190,35,50,.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.counters-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+.counter-item {
+  text-align: center;
+  padding: 32px 24px;
+  border-right: 1px solid rgba(255,255,255,.07);
+  position: relative;
+}
+.counter-item:last-child {
+  border-right: none;
+}
+.counter-num {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--red);
+  letter-spacing: -.03em;
+  line-height: 1;
+  margin-bottom: 10px;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s;
+}
+.counter-item:hover .counter-num {
+  color: #fff;
+}
+.counter-label {
+  color: var(--slate-400);
+  font-size: .82rem;
+  font-weight: 500;
+  letter-spacing: .01em;
+}
+/* Animated underline on counter hover */
+.counter-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 40px;
+  height: 2px;
+  background: var(--red);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.counter-item:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ---------- Hook/split section animated border ---------- */
+.split-side.clear-side {
+  position: relative;
+}
+.split-side.clear-side::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(190,35,50,.3), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ---------- Section headline animated underline ---------- */
+.section-headline {
+  position: relative;
+  display: inline-block;
+}
+.section-headline::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red), var(--red));
+  border-radius: 2px;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+}
+.section-headline.visible::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ---------- Architecture cards in security section ---------- */
+.arch-card {
+  position: relative;
+  overflow: hidden;
+}
+.arch-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(190,35,50,.08) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  transform: translate(0,0);
+}
+.arch-card:hover::before {
+  opacity: 1;
+}
+
+/* ---------- Blog card shimmer effect ---------- */
+.blog-card {
+  position: relative;
+  overflow: hidden;
+}
+.blog-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
+  transition: left 0.55s ease;
+  pointer-events: none;
+}
+.blog-card:hover::after {
+  left: 150%;
+}
+
+/* ---------- Pricing card animated border glow ---------- */
+.pricing-card.highlighted {
+  position: relative;
+}
+@keyframes borderGlow {
+  0%, 100% { box-shadow: 0 0 0 1px var(--red), 0 12px 40px rgba(190,35,50,.12); }
+  50%       { box-shadow: 0 0 0 2px var(--red), 0 16px 48px rgba(190,35,50,.22); }
+}
+.pricing-card.highlighted {
+  animation: borderGlow 3s ease-in-out infinite;
+}
+.pricing-card.highlighted:hover {
+  animation: none;
+  box-shadow: 0 0 0 2px var(--red), 0 20px 50px rgba(190,35,50,.25);
+}
+
+/* ---------- FAQ item accordion animation ---------- */
+.faq-question {
+  position: relative;
+}
+.faq-question::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 3px;
+  height: 60%;
+  background: var(--red);
+  border-radius: 2px;
+  transition: transform 0.25s;
+}
+.faq-item.open .faq-question::before {
+  transform: translateY(-50%) scaleY(1);
+}
+
+/* ---------- Scroll progress bar at top ---------- */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--red), var(--red));
+  z-index: 9999;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px rgba(190,35,50,.5);
+}
+
+/* ---------- Section entry line (decorative) ---------- */
+.section-entry-line {
+  display: block;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--red), transparent);
+  border-radius: 2px;
+  margin-bottom: 32px;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+.section-entry-line.visible {
+  width: 120px;
+}
+
+/* ---------- Responsive: reduce motion for accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .section-headline::after,
+  .section-entry-line,
+  .dashboard-mock,
+  .hero-visual::after,
+  .pricing-card.highlighted {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    width: auto !important;
+  }
+}
+
+/* ---------- Mobile tweaks ---------- */
+@media (max-width: 768px) {
+  .counters-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .counter-item {
+    border-right: 1px solid rgba(255,255,255,.07);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+  }
+  .counter-item:nth-child(2n) {
+    border-right: none;
+  }
+  .counter-item:nth-child(3),
+  .counter-item:nth-child(4) {
+    border-bottom: none;
+  }
+}

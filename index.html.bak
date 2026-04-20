@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scotty AI — The First AI Copilot for Legislators</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="scotty-v2.css">
+  <link rel="stylesheet" href="scroll-animations.css">
+</head>
+<body>
+
+<!-- ============ SITE HEADER ============ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <div class="logo" style="display:flex; align-items:center; gap: 12px; text-decoration:none; color:inherit;">
+      <a href="index.html" style="display:flex; align-items:center; color:inherit; text-decoration:none;" aria-label="Scotty AI Home">
+      <svg class="logo-icon" viewBox="0 0 512 512" width="40" height="40"><style>.st1{fill:#BE2332;}</style><g><defs><rect id="s1" x="101" y="376.5" width="234.1" height="120.7"/></defs><clipPath id="c1"><use xlink:href="#s1"/></clipPath><g clip-path="url(#c1)"><path class="st1" d="M319.6,475c-20.9,17.1-52.2,13.4-52.2,13.4c40.4-6.2,44.1-20.2,44.5-22.9c3.8-31.1-75.7-48.4-121.3-39.2c-8.9,1.8-16.4,4.5-21.9,8.4c-30.7,21.7,18.6,54.7,65.8,62.4c0,0-47.4-.6-99.1-37.2c-16.8-11.9-31.3-26.5-33.7-41.6c-3.7-22.8,22.5-35.9,58.4-40.1c45.7-5.3,107.1,3.8,142.9,26.2C341.6,428.6,342.5,456.4,319.6,475"/></g></g><path class="st1" d="M392.2,438.5c53.5-72.3-56.4-118.1-138.3-130c-44.8-6.5-85.3-4.7-117.2,3.1C74,326.8,43.9,365.1,77.1,409c0,0-41.8-31.9-43.8-88.6c-1.8-52.9,63.8-68.1,98.9-72.5c1.5-.2,2.9-.3,4.2-.5c106.1-11.4,222.1,27.5,270.9,81.8C458.7,386.3,393.6,436.9,392.2,438.5"/><path class="st1" d="M477.3,333.8c.9-16.1,2.4-46.1-26.3-79.7c-56.8-66.3-197.1-97.8-301.6-82.7c-69.1,10-122.5,40.5-125.8,94.8c0,0-13.8-82.1,42.3-120.5c28.5-19.5,68.9-29.6,113.5-31c91.6-2.9,200.7,30.5,260.2,92.2C503.6,273.5,477.3,333.8,477.3,333.8"/><path class="st1" d="M497.8,201.3C456.1,103.2,331.1,60.4,223.9,64c-64.6,2.2-122.7,21.2-152.1,55.1l.1-.1c0,0,17.6-44.9,90.2-70.5c27.4-9.7,60.8-13.2,96-10.7c61.3,4.4,127.9,27.5,177,69.5C494.6,158,497.8,201.3,497.8,201.3"/><path class="st1" d="M428,76.8C397.7,57.1,359.8,41.3,317.2,32c-12.9-2.8-25.7-4.9-38.2-6.3c-28.9-3.2-56.6-2.8-81.8.8c31.5-10.5,66.2-14.3,101.6-9.8c7,.9,14.1,2.1,21.1,3.6C362.6,29.5,399.5,49.7,428,76.8"/><path class="st1" d="M77.1,409c0,0-41.8-31.9-43.8-88.6c-1.8-52.9,63.8-68.1,98.9-72.5c-1.3,20.8,0,42.1,4.3,63.6C74,326.8,43.9,365.1,77.1,409"/><path class="st1" d="M23.5,266.2c0,0-13.8-82.1,42.3-120.5c28.5-19.5,68.9-29.6,113.5-31c-12,17.5-22.2,36.5-30,56.7C80.2,181.5,26.8,211.9,23.5,266.2"/><g><defs><rect id="s2" x="101" y="377.7" width="134.1" height="119.5"/></defs><clipPath id="c2"><use xlink:href="#s2"/></clipPath><g clip-path="url(#c2)"><path class="st1" d="M234.4,497.1c0,0-47.4-.6-99.1-37.2c-16.8-11.9-31.3-26.5-33.7-41.6c-3.7-22.8,22.5-35.9,58.4-40.1c8.2,16.1,18.3,32.2,30.5,48.1c-8.9,1.8-16.4,4.5-21.9,8.4C138,456.3,187.3,489.4,234.4,497.1"/></g></g><path class="st1" d="M258.1,37.8c-11.9,7.7-23.4,16.4-34.2,26.2c-64.6,2.2-122.7,21.2-152.1,55.1l.1-.1c0,0,17.6-44.9,90.2-70.5C189.6,38.8,223,35.3,258.1,37.8"/><path class="st1" d="M298.8,16.6c-6.7,2.7-13.3,5.7-19.8,9.1c-28.9-3.2-56.6-2.8-81.8.8C228.8,16,263.5,12.2,298.8,16.6"/></svg>
+      </a>
+      <div style="display:flex; flex-direction:column; align-items:flex-start; justify-content:center;">
+        <a href="index.html" style="color:inherit; text-decoration:none;"><span class="logo-text" style="line-height:0.85; font-size:1.6rem;">Scotty AI</span></a>
+        <a href="https://theperformagroup.com/" target="_blank" style="font-size:10px;font-weight:500;color:#ffffff;letter-spacing:.04em;margin-top:-3px;display:inline-flex;align-items:center;text-decoration:none;"><span class="by-branding-text" style="transform:translateY(-1px); color:#ffffff;">By</span> <img src="performa-logo.png" alt="Performa" class="performa-logo-header" style="height:10px; margin-left:4px; margin-right:0; filter:none;"></a>
+      </div>
+    </div>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html" class="nav-link" style="color:var(--red);font-weight:700;">Home</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="blog/index.html" class="nav-link">Blog</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <div class="header-ctas">
+            <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+        <button class="lang-btn" data-lang="es" aria-label="Español">🇪🇸</button>
+        <button class="lang-btn" data-lang="ja" aria-label="日本語">🇯🇵</button>
+        <button class="lang-btn" data-lang="fr" aria-label="Français">🇫🇷</button>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="#" class="btn btn-outline-light" data-i18n="nav-login">Login</a>
+      <a href="contact.html" class="btn btn-red" aria-label="Request a Trial" data-i18n="nav-try">Try Scotty For Free</a>
+    </div>
+    <button class="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ PAGE 1: HOMEPAGE ============ -->
+
+<!-- HERO SECTION -->
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span data-i18n="hero-eyebrow">Powered by The Performa Group · 20-Year Security Legacy</span>
+      </div>
+      <h1 data-i18n="hero-title">AI Copilot for <span class="text-red">Government Budget Leaders</span>.</h1>
+      <p class="hero-sub" data-i18n="hero-sub">Cut weeks of manual budget analysis down to seconds. Scotty leverages generative AI to forecast, scenario-plan, and optimize public funds—backed by the 20-year security legacy of The Performa Group.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn btn-red btn-lg" data-i18n="nav-try">Try Scotty For Free</a>
+        <a href="#" class="btn-link">
+          <span class="play-btn">
+            <svg width="10" height="12" viewBox="0 0 10 12"><polygon points="1,1 9,6 1,11" fill="#BE2332"/></svg>
+          </span>
+          <span data-i18n="hero-watch">Watch the 60s Executive Briefing</span>
+        </a>
+      </div>
+      <div class="hero-social-proof">
+        <div class="proof-avatars">
+          <div class="proof-avatar" style="background:var(--slate-200);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700">TX</div>
+          <div class="proof-avatar" style="background:#BE2332;"></div>
+          <div class="proof-avatar" style="background:#334155;"></div>
+        </div>
+        <span data-i18n="hero-trusted">Trusted by <strong>50+</strong> state &amp; federal agencies</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="dashboard-mock">
+        <div class="mock-topbar">
+          <span class="mock-dot red"></span>
+          <span class="mock-dot yellow"></span>
+          <span class="mock-dot green"></span>
+          <span class="mock-title">Scotty AI — Budget Intelligence</span>
+          <span class="mock-live-badge">● LIVE</span>
+        </div>
+        <div class="mock-body">
+
+          <!-- Search Hook — The Star of the Show -->
+          <div class="mock-search-wrapper">
+            <p class="mock-search-label">
+              <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3.5" fill="#BE2332"/></svg>
+              Enter your District or Agency to see your 20% public data insights instantly.
+            </p>
+            <div class="mock-search">
+              <input type="text" id="agency-search" placeholder='e.g., "Texas DOT" or "District 14"' autocomplete="off">
+              <button class="btn btn-red btn-sm" id="scan-btn">
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="4.5" cy="4.5" r="3.5" stroke="white" stroke-width="1.4"/><path d="M7.5 7.5l2.2 2.2" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
+                Analyze
+              </button>
+            </div>
+            <div class="mock-suggestions">
+              <button class="suggestion-chip" data-query="Texas DOT">Texas DOT</button>
+              <button class="suggestion-chip" data-query="CA Legislature">CA Legislature</button>
+              <button class="suggestion-chip" data-query="FHWA District 4">FHWA District 4</button>
+            </div>
+          </div>
+
+          <!-- Results Area (scan overlay + data) -->
+          <div class="mock-results-area" id="mock-results-area">
+
+            <!-- AI Scanning Overlay -->
+            <div class="scan-overlay" id="scan-overlay">
+              <div class="scan-header">
+                <div class="scan-pulse-wrapper">
+                  <div class="scan-pulse-ring"></div>
+                  <div class="scan-pulse-ring delay"></div>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#BE2332" stroke-width="1.5"/><path d="M4.5 7l2 2 3.5-3.5" stroke="#BE2332" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="scan-title-group">
+                  <span class="scan-label">Scotty AI Analyzing</span>
+                  <strong class="scan-agency-name" id="scan-agency-name">Texas DOT</strong>
+                </div>
+              </div>
+
+              <div class="scan-line-track">
+                <div class="scan-line" id="scan-line"></div>
+              </div>
+
+              <div class="scan-steps" id="scan-steps">
+                <div class="scan-step" id="scan-step-0">
+                  <span class="step-dot"></span>
+                  <span class="step-text">Aggregating public budget records</span>
+                  <span class="step-check">✓</span>
+                </div>
+                <div class="scan-step" id="scan-step-1">
+                  <span class="step-dot"></span>
+                  <span class="step-text">Cross-referencing BIDS database</span>
+                  <span class="step-check">✓</span>
+                </div>
+                <div class="scan-step" id="scan-step-2">
+                  <span class="step-dot"></span>
+                  <span class="step-text">Running AI variance analysis</span>
+                  <span class="step-check">✓</span>
+                </div>
+                <div class="scan-step" id="scan-step-3">
+                  <span class="step-dot"></span>
+                  <span class="step-text">Generating 20% public insights</span>
+                  <span class="step-check">✓</span>
+                </div>
+              </div>
+
+              <div class="scan-progress-track">
+                <div class="scan-progress-fill" id="scan-progress-fill"></div>
+              </div>
+
+              <div class="scan-stats">
+                <div class="scan-stat">
+                  <span class="scan-stat-num" id="stat-records">0</span>
+                  <span class="scan-stat-label">Records</span>
+                </div>
+                <div class="scan-stat">
+                  <span class="scan-stat-num" id="stat-lines">0</span>
+                  <span class="scan-stat-label">Budget Lines</span>
+                </div>
+                <div class="scan-stat">
+                  <span class="scan-stat-num" id="stat-variance">0</span>
+                  <span class="scan-stat-label">Variances</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data Results -->
+            <div class="mock-results" id="mock-results">
+              <div class="results-complete-badge" id="results-badge">
+                <svg width="9" height="9" viewBox="0 0 9 9"><circle cx="4.5" cy="4.5" r="4" fill="#34d399"/></svg>
+                Analysis complete — <span id="results-agency">Texas DOT</span>
+              </div>
+              <div class="mock-charts">
+                <div class="mock-chart">
+                  <div class="bar-group">
+                    <div class="bar" style="--h:58%"></div>
+                    <div class="bar" style="--h:82%"></div>
+                    <div class="bar" style="--h:47%"></div>
+                    <div class="bar accent" style="--h:94%"></div>
+                    <div class="bar" style="--h:61%"></div>
+                    <div class="bar" style="--h:73%"></div>
+                  </div>
+                  <span class="chart-label">Budget Allocation FY26</span>
+                </div>
+                <div class="mock-chart">
+                  <svg class="line-chart" viewBox="0 0 200 70" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#BE2332" stop-opacity=".3"/>
+                        <stop offset="100%" stop-color="#BE2332" stop-opacity="0"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M0,55 C30,50 30,42 60,48 S90,28 120,32 S150,14 200,18" fill="none" stroke="#BE2332" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M0,55 C30,50 30,42 60,48 S90,28 120,32 S150,14 200,18 L200,70 L0,70 Z" fill="url(#lineGrad)"/>
+                    <path d="M0,62 C30,58 60,56 90,50 S150,44 200,40" fill="none" stroke="#BE2332" stroke-width="1.5" stroke-dasharray="5,3"/>
+                  </svg>
+                  <span class="chart-label">3-Year Trend</span>
+                </div>
+              </div>
+              <div class="mock-table">
+                <div class="table-row header"><span>Agency</span><span>FY 2026</span><span>Δ YoY</span></div>
+                <div class="table-row"><span>TX DOT</span><span>$4.2B</span><span class="positive">+3.1%</span></div>
+                <div class="table-row"><span>CA DOT</span><span>$6.8B</span><span class="positive">+1.7%</span></div>
+                <div class="table-row"><span>FL DOT</span><span>$2.9B</span><span class="negative">−0.4%</span></div>
+              </div>
+            </div>
+          </div><!-- /mock-results-area -->
+
+        </div><!-- /mock-body -->
+        <p class="mock-caption">
+          <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3.5" fill="#BE2332" opacity=".6"/></svg>
+          Public data insights · 20% view · Powered by Scotty AI
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust-bar">
+  <div class="container">
+    <p class="trust-headline">Proven in Secure Environments</p>
+    <div class="trust-logos">
+      <div class="trust-logo-item">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#BE2332" opacity=".1"/><circle cx="24" cy="16" r="5" stroke="#BE2332" stroke-width="2" fill="none"/><path d="M14 36c0-6 4-10 10-10s10 4 10 10" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        <span>Federal Agency</span>
+      </div>
+      <div class="trust-logo-item">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#BE2332" opacity=".1"/><path d="M12 36h24l-5-12H17z" stroke="#BE2332" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M20 24V14h8v10" stroke="#BE2332" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>
+        <span>State DOT</span>
+      </div>
+      <div class="trust-logo-item">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#BE2332" opacity=".1"/><text x="24" y="28" font-size="13" fill="#BE2332" font-weight="800" text-anchor="middle">BIDS</text></svg>
+        <span>BIDS Platform</span>
+      </div>
+      <div class="trust-logo-item">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#BE2332" opacity=".1"/><path d="M24 8l12 8v12c0 6-12 12-12 12S12 34 12 28V16z" stroke="#BE2332" stroke-width="2" fill="none" stroke-linejoin="round"/><text x="24" y="30" font-size="10" fill="#BE2332" font-weight="800" text-anchor="middle">20Y</text></svg>
+        <span>20 Years Security</span>
+      </div>
+      <div class="trust-logo-item">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#BE2332" opacity=".1"/><circle cx="24" cy="24" r="12" stroke="#BE2332" stroke-width="2" fill="none"/><path d="M18 24l4 4 8-8" stroke="#BE2332" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>FedRAMP / NIST</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE GRID -->
+<section class="features" id="features">
+  <div class="container">
+    <h2 class="section-headline">Built for the Complexity of Public Finance.</h2>
+    <div class="feature-cards">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#BE2332" opacity=".1"/><path d="M14 36l5-7 5 4 5-9 5 5" stroke="#BE2332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 22h4l3-5 4 9 3-6 4 2h6" stroke="#BE2332" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/></svg>
+        </div>
+        <h3>Priority-Driven Budgeting</h3>
+        <p>Align every dollar with legislative goals. Use AI to rank expenditures by impact and necessity—ensuring your agency's budget reflects its highest priorities.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#BE2332" opacity=".1"/><circle cx="24" cy="28" r="8" stroke="#BE2332" stroke-width="2" fill="none"/><path d="M24 20v-6M20 22l-4-4M28 22l4-4" stroke="#BE2332" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="28" r="2" fill="#BE2332"/></svg>
+        </div>
+        <h3>Automated Variance Detection</h3>
+        <p>Identify budget anomalies and potential deficits months before they appear in traditional reports. Stay ahead of fiscal risk before it becomes a crisis.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#BE2332" opacity=".1"/><rect x="14" y="20" width="6" height="12" rx="2" fill="#BE2332" opacity=".4"/><rect x="22" y="15" width="6" height="17" rx="2" fill="#BE2332" opacity=".7"/><rect x="30" y="10" width="6" height="22" rx="2" fill="#BE2332"/><path d="M11 36h28" stroke="#BE2332" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Legislative Scenario Testing</h3>
+        <p>Instantly model the long-term impact of proposed funding shifts or policy changes on your specific agency. Answer "what if" before the vote, not after.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ STATS COUNTERS ============ -->
+<section class="stats-counter" aria-label="Platform statistics">
+  <div class="container">
+    <div class="counters-grid">
+      <div class="counter-item"><div class="counter-num" data-count="20" data-suffix="+">20+</div><div class="counter-label">Years of Government Experience</div></div>
+      <div class="counter-item"><div class="counter-num" data-count="500" data-prefix="$" data-suffix="B+">$500B+</div><div class="counter-label">Budget Data Analyzed</div></div>
+      <div class="counter-item"><div class="counter-num" data-count="99.99" data-suffix="%">99.99%</div><div class="counter-label">Platform Uptime</div></div>
+      <div class="counter-item"><div class="counter-num" data-count="50" data-suffix="+">50+</div><div class="counter-label">Government Agencies Served</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE HOOK — 20/80 SPLIT -->
+<section class="hook-split" id="hook">
+  <div class="container">
+    <div class="split-intro">
+      <h2>Start Free. See Everything When You're Ready.</h2>
+      <p>Public data tells part of the story. Scotty tells the whole one.</p>
+    </div>
+    <div class="split-grid">
+      <div class="split-side blurred-side">
+        <div class="split-meta-tag fragmented">Public Data · 20%</div>
+        <h3>Your Free Starting Point.</h3>
+        <p class="split-desc">Scotty instantly surfaces all publicly available budget data for your agency — that's roughly 20% of your full financial picture. Enough to spot trends. Not enough to act on them.</p>
+        <div class="split-visual-wrap blurred-wrap">
+          <div class="split-blur-overlay">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="5" y="8" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M7 8V6a2 2 0 014 0v2" stroke="currentColor" stroke-width="1.5"/></svg>
+            Limited Access
+          </div>
+          <table class="split-table">
+            <thead><tr><th>Line Item</th><th>Category</th><th>Amount</th></tr></thead>
+            <tbody>
+              <tr><td>Line Item 01</td><td>General</td><td>$—</td></tr>
+              <tr><td>Line Item 02</td><td>General</td><td>$—</td></tr>
+              <tr><td>Line Item 03</td><td>General</td><td>$—</td></tr>
+              <tr><td>Line Item 04</td><td>General</td><td>$—</td></tr>
+              <tr><td>Line Item 05</td><td>General</td><td>$—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="split-divider">
+        <div class="split-divider-line"></div>
+        <a href="#" class="btn btn-red btn-split-cta">Unlock Your Agency's<br>Full Potential</a>
+        <div class="split-divider-line"></div>
+      </div>
+
+      <div class="split-side clear-side">
+        <div class="split-meta-tag full">Full Intelligence · 100%</div>
+        <h3>The Full Picture — Unlocked.</h3>
+        <p class="split-desc">Get licensed and Scotty integrates directly with your internal systems, bringing the remaining 80% of your financial data into one intelligent, secure platform. That's when real forecasting, scenario planning, and budget optimization become possible.</p>
+        <div class="split-visual-wrap clear-wrap">
+          <table class="split-table">
+            <thead><tr><th>Project</th><th>Dept.</th><th>FY26</th><th>Trend</th></tr></thead>
+            <tbody>
+              <tr><td>I-35 Expansion</td><td>TX DOT</td><td>$842M</td><td class="positive">↑ 12%</td></tr>
+              <tr><td>Bridge Retrofit</td><td>CA DOT</td><td>$1.2B</td><td class="positive">↑ 8%</td></tr>
+              <tr><td>Rural Transit</td><td>FL DOT</td><td>$315M</td><td class="negative">↓ 2%</td></tr>
+              <tr><td>Smart Sensors</td><td>NY DOT</td><td>$478M</td><td class="positive">↑ 22%</td></tr>
+              <tr><td>EV Charging Grid</td><td>WA DOT</td><td>$190M</td><td class="positive">↑ 45%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2: SOLUTIONS ============ -->
+<section class="solutions" id="solutions">
+  <div class="container">
+    <h1 class="section-headline">Legislative Financial Intelligence.</h1>
+    <div class="sol-tabs">
+      <button class="sol-tab active" data-tab="state">State (DOT)</button>
+      <button class="sol-tab" data-tab="federal">Federal</button>
+      <button class="sol-tab" data-tab="local">Local</button>
+    </div>
+
+    <!-- State DOT -->
+    <div class="sol-content active" id="tab-state">
+      <div class="z-section">
+        <div class="z-image">
+          <div class="z-placeholder">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none"><rect width="120" height="120" rx="24" fill="#BE2332" opacity=".08"/><rect x="20" y="25" width="80" height="65" rx="8" fill="white" stroke="#BE2332" stroke-width="1.5" opacity=".6"/><path d="M30 75l15-18 12 8 13-22 12 10 8-12" stroke="#BE2332" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 75l15-18 12 8 13-22 12 10 8-12 L90 90 30 90Z" fill="#BE2332" opacity=".08"/><circle cx="30" cy="75" r="3" fill="#BE2332"/><circle cx="45" cy="57" r="3" fill="#BE2332"/><circle cx="57" cy="65" r="3" fill="#BE2332"/><circle cx="70" cy="43" r="3" fill="#BE2332"/><circle cx="82" cy="53" r="3" fill="#BE2332"/><circle cx="90" cy="41" r="3" fill="#BE2332"/><path d="M30 82h60" stroke="#E2E8F0" stroke-width="1"/></svg>
+            <span>Multi-Year Infrastructure Forecasting</span>
+          </div>
+        </div>
+        <div class="z-text">
+          <h3>Precision Infrastructure Budgeting.</h3>
+          <p>State DOTs manage some of the most complex, multi-year financial portfolios in the country. Scotty AI integrates with your STIP/TIP data to provide a 360-degree view of project health, grant compliance, and future funding gaps.</p>
+          <div class="z-benefit">
+            <svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Key Benefit: Reduce the time spent on "Legislative Inquiry" responses from days to minutes.
+          </div>
+        </div>
+      </div>
+      <div class="z-section reverse">
+        <div class="z-image">
+          <div class="z-placeholder">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none"><rect width="120" height="120" rx="24" fill="#BE2332" opacity=".08"/><rect x="22" y="22" width="76" height="76" rx="10" fill="white" stroke="#BE2332" stroke-width="1.5" opacity=".6"/><rect x="32" y="36" width="56" height="4" rx="2" fill="#BE2332" opacity=".15"/><rect x="32" y="46" width="42" height="4" rx="2" fill="#BE2332" opacity=".15"/><rect x="32" y="56" width="50" height="4" rx="2" fill="#BE2332" opacity=".15"/><rect x="32" y="66" width="35" height="4" rx="2" fill="#BE2332" opacity=".15"/><rect x="32" y="76" width="46" height="4" rx="2" fill="#BE2332" opacity=".15"/><circle cx="82" cy="38" r="4" fill="#34d399"/><circle cx="82" cy="48" r="4" fill="#34d399"/><circle cx="82" cy="58" r="4" fill="#BE2332" opacity=".4"/><circle cx="82" cy="68" r="4" fill="#34d399"/><circle cx="82" cy="78" r="4" stroke="#94A3B8" stroke-width="1.5" fill="none"/><path d="M79 38l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M79 48l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M79 68l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Grant Compliance Dashboard</span>
+          </div>
+        </div>
+        <div class="z-text">
+          <h3>Grant and Compliance Tracking.</h3>
+          <p>Federal grant compliance tracking with automated reporting, deadline alerts, and real-time audit trails. Scotty ensures every federal dollar is tracked, optimized, and defensible.</p>
+          <div class="z-benefit">
+            <svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Native integration with BIDS and DOTS platforms—built by the same team.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Federal -->
+    <div class="sol-content" id="tab-federal">
+      <div class="z-section">
+        <div class="z-image">
+          <div class="z-placeholder">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect width="80" height="80" rx="8" fill="#BE2332" opacity=".08"/><path d="M20 55l12-16 10 8 10-20 8 12" stroke="#BE2332" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Federal Budget Intelligence</span>
+          </div>
+        </div>
+        <div class="z-text">
+          <h3>Transparency Meets Efficiency.</h3>
+          <p>From municipal oversight to federal agency auditing, Scotty provides the "Common Operating Picture" required for high-stakes financial management. Ensure every tax dollar is tracked, optimized, and defensible.</p>
+          <div class="z-benefit">
+            <svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Built for FedRAMP and NIST compliance from day one.
+          </div>
+        </div>
+      </div>
+      <div class="z-section reverse">
+        <div class="z-image">
+          <div class="z-placeholder">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect width="80" height="80" rx="8" fill="#BE2332" opacity=".08"/><rect x="15" y="20" width="50" height="35" rx="4" stroke="#BE2332" stroke-width="2" fill="none"/><path d="M15 30h50M30 30v25" stroke="#BE2332" stroke-width="1.5"/></svg>
+            <span>Appropriations Compliance</span>
+          </div>
+        </div>
+        <div class="z-text">
+          <h3>Regulatory Compliance Tracking.</h3>
+          <p>Real-time tracking of federal compliance requirements and reporting deadlines. Automated appropriations monitoring across every department and line item with AI-powered analysis.</p>
+          <div class="z-benefit">
+            <svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Zero-trust deployment options available for classified environments.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Local -->
+    <div class="sol-content" id="tab-local">
+      <div class="z-section">
+        <div class="z-image">
+          <div class="z-placeholder">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect width="80" height="80" rx="8" fill="#BE2332" opacity=".08"/><circle cx="40" cy="40" r="20" stroke="#BE2332" stroke-width="2" fill="none"/><path d="M40 25v15l10 10" stroke="#BE2332" stroke-width="2" stroke-linecap="round"/></svg>
+            <span>Municipal Budget Analysis</span>
+          </div>
+        </div>
+        <div class="z-text">
+          <h3>Local Government Budgeting.</h3>
+          <p>Streamline municipal budget planning and analysis with AI-powered insights for local agencies. Scotty brings enterprise-grade financial intelligence to every level of government—without enterprise complexity.</p>
+          <div class="z-benefit">
+            <svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Onboard in days, not months. No legacy IT overhaul required.
+          </div>
+        </div>
+      </div>
+      <div class="z-section reverse">
+        <div class="z-image">
+          <div class="z-placeholder">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect width="80" height="80" rx="8" fill="#BE2332" opacity=".08"/><path d="M20 55h40M25 45h30M30 35h20" stroke="#BE2332" stroke-width="2.5" stroke-linecap="round"/></svg>
+            <span>Revenue Projections</span>
+          </div>
+        </div>
+        <div class="z-text">
+          <h3>Revenue Forecasting & Projections.</h3>
+          <p>Predict revenue trends and plan for future needs with data-driven forecasting tools. From tax receipts to federal grant projections, Scotty gives local leaders the full financial picture.</p>
+          <div class="z-benefit">
+            <svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Scenario planning built for council presentations and public hearings.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 3: SECURITY & TRUST ============ -->
+<section class="security" id="security">
+  <div class="container">
+    <div class="security-header">
+      <h1>Government-Grade Intelligence.<br>Zero-Trust Architecture.</h1>
+      <p>At The Performa Group, we've spent 20 years building the software that runs government. Scotty is built on that same foundation.</p>
+    </div>
+
+    <div class="arch-cards">
+      <div class="arch-card">
+        <div class="arch-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="#BE2332" stroke-width="2" fill="none"/><rect x="18" y="20" width="12" height="10" rx="2" stroke="#BE2332" stroke-width="2" fill="none"/><path d="M20 20v-4a4 4 0 018 0v4" stroke="#BE2332" stroke-width="2"/></svg>
+        </div>
+        <h3>Private AI Instances</h3>
+        <p>Your data is never used to train public models. We deploy "Siloed Intelligence" where your agency's data remains in an isolated, encrypted environment only your authorized staff can access.</p>
+      </div>
+      <div class="arch-card">
+        <div class="arch-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="#BE2332" stroke-width="2" fill="none"/><path d="M24 10l12 8v12c0 6-12 10-12 10S12 36 12 30V18z" stroke="#BE2332" stroke-width="2" fill="none"/><path d="M18 25l4 4 8-8" stroke="#BE2332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Compliance First</h3>
+        <p>Designed to meet FedRAMP and NIST standards. AES-256 encryption at rest and TLS 1.3 in transit ensures your financial records are more secure with us than on an internal legacy server.</p>
+      </div>
+      <div class="arch-card">
+        <div class="arch-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="#BE2332" stroke-width="2" fill="none"/><rect x="14" y="16" width="20" height="16" rx="2" stroke="#BE2332" stroke-width="2" fill="none"/><path d="M14 22h20M22 22v10" stroke="#BE2332" stroke-width="1.5"/><circle cx="18" cy="19" r="1" fill="#BE2332"/></svg>
+        </div>
+        <h3>Data Sovereignty</h3>
+        <p>All data processed and stored exclusively in the United States, in FedRAMP-compliant data centers. Full domestic control. Role-based access control for every user and endpoint.</p>
+      </div>
+    </div>
+
+    <div class="endorsement">
+      <div class="endorsement-img">
+        <div class="headshot-placeholder">
+          <img src="brendan-hayes.jpg" alt="Brendan Hayes" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid #475569;">
+        </div>
+      </div>
+      <blockquote>
+        <p>"In two decades of serving DOTs and government agencies, we have never compromised on data integrity. Scotty is the next evolution of that promise."</p>
+        <cite>— Brendan Hayes, CEO of The Performa Group</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 4: BLOG ============ -->
+<section class="blog" id="blog">
+  <div class="container">
+    <h1 class="section-headline">Legislative Intelligence Hub</h1>
+    <div class="blog-layout">
+      <div class="blog-main">
+        <article class="blog-featured">
+          <div class="blog-featured-img">
+            <img src="blog-img-80pct.jpg" alt="The 80% Gap" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+          </div>
+          <div class="blog-featured-text">
+            <span class="blog-tag">Featured</span>
+            <h2>The 80% Gap: Why Public Data is Only the Beginning of Budget Optimization.</h2>
+            <p>Transparency is a start, but true legislative efficiency requires the "internal view." We explore why connecting private data to AI is the next frontier for state agencies—and how Scotty bridges that gap.</p>
+            <a href="blog/the-80-percent-gap.html" class="btn-link">Read More &rarr;</a>
+          </div>
+        </article>
+        <div class="blog-grid">
+          <a href="blog/ai-ethics-public-sector.html" class="blog-card-link" style="text-decoration:none;color:inherit;">
+          <article class="blog-card">
+            <div class="blog-card-img" style="background-image:url('blog-img-ethics.jpg');background-size:cover;background-position:center;"></div>
+            <h4>AI Ethics in the Public Sector: Keeping the Human in the Loop</h4>
+            <p>Scotty isn't here to replace the Legislative Director; it's here to empower them with Explainable AI...</p>
+          </article></a>
+          <a href="blog/dot-agencies-predictive-forecasting.html" class="blog-card-link" style="text-decoration:none;color:inherit;">
+          <article class="blog-card">
+            <div class="blog-card-img" style="background-image:url('blog-img-dot.jpg');background-size:cover;background-position:center;"></div>
+            <h4>5 Ways DOT Agencies Cut Budget Review Time with Predictive Forecasting</h4>
+            <p>Real agencies, real results. How AI variance detection is changing the monthly close process...</p>
+          </article></a>
+          <a href="blog/zero-trust-architecture-government-saas.html" class="blog-card-link" style="text-decoration:none;color:inherit;">
+          <article class="blog-card">
+            <div class="blog-card-img" style="background-image:url('blog-img-zerotrust.jpg');background-size:cover;background-position:center;"></div>
+            <h4>Zero-Trust Architecture: Why Government SaaS Must Start Here</h4>
+            <p>The Performa Shield model, explained. How siloed AI instances protect the most sensitive public data...</p>
+          </article></a>
+          <a href="blog/fedramp-compliance-automation.html" class="blog-card-link" style="text-decoration:none;color:inherit;">
+          <article class="blog-card">
+            <div class="blog-card-img" style="background-image:url('blog-img-fedramp.jpg');background-size:cover;background-position:center;"></div>
+            <h4>FedRAMP and the Future of Compliance Automation</h4>
+            <p>Manual compliance tracking is a liability. Scotty's automated audit trail changes the risk calculus...</p>
+          </article></a>
+          <a href="blog/multi-state-dot-budget-harmonization.html" class="blog-card-link" style="text-decoration:none;color:inherit;">
+          <article class="blog-card">
+            <div class="blog-card-img" style="background-image:url('blog-img-multistate.jpg');background-size:cover;background-position:center;"></div>
+            <h4>Case Study: Multi-State DOT Budget Harmonization</h4>
+            <p>How three regional DOTs unified their financial reporting into a single real-time intelligence layer...</p>
+          </article></a>
+          <a href="blog/legislators-free-access-budget-data.html" class="blog-card-link" style="text-decoration:none;color:inherit;">
+          <article class="blog-card">
+            <div class="blog-card-img" style="background-image:url('blog-img-legislators.jpg');background-size:cover;background-position:center;"></div>
+            <h4>Why Legislators Deserve Free Access to Their Own Budget Data</h4>
+            <p>The case for radical public-sector financial transparency—and why Scotty's 20% free tier matters...</p>
+          </article></a>
+        </div>
+      </div>
+
+      <aside class="blog-sidebar">
+        <div class="sidebar-card">
+          <h4>Trending Topics</h4>
+          <div class="tag-cloud">
+            <span class="tag">#GovTech</span>
+            <span class="tag">#AI</span>
+            <span class="tag">#Budget</span>
+            <span class="tag">#Compliance</span>
+            <span class="tag">#DOTS</span>
+            <span class="tag">#FedRAMP</span>
+            <span class="tag">#Forecasting</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 5: FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="container container-narrow">
+    <h1 class="section-headline">Trust Center & FAQ</h1>
+    <div class="faq-search">
+      <input type="text" placeholder="Search security, pricing, integrations..." id="faq-search-input">
+    </div>
+    <div class="faq-list">
+      <div class="faq-category">
+        <h3 class="faq-cat-title">Security & Privacy</h3>
+        <div class="faq-item">
+          <button class="faq-question">How does the "20% Public Data" work?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><p>Scotty automatically aggregates official, publicly available budget documents, transparency reports, and legislative records for your agency to give you an immediate "Aha!" moment of analysis—at no cost, with no login required beyond legislative verification.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is my internal data safe once I get licensed and integrate?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><p>Absolutely. We use the "Performa Shield" architecture. Your internal data is ingested into a private AI instance that only your authorized staff can access. It is never mixed with public data, never shared across agencies, and never used to train external AI models.</p></div>
+        </div>
+      </div>
+      <div class="faq-category">
+        <h3 class="faq-cat-title">How the AI Copilot Works</h3>
+        <div class="faq-item">
+          <button class="faq-question">Can Scotty integrate with our current BIDS or DOTS platform?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><p>Yes. Scotty is designed by the same team that built the BIDS and DOTS systems. Integration is seamless via secure API or batch upload—no middleware, no expensive IT project required. Most agencies are live within a single sprint cycle.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Does Scotty replace our existing financial software?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><p>No—Scotty is an intelligence layer, not a replacement. It sits on top of your existing systems and transforms raw financial data into actionable insights. Think of it as giving your existing tools an AI brain.</p></div>
+        </div>
+      </div>
+      <div class="faq-category">
+        <h3 class="faq-cat-title">Data Integration (The 80/20 Rule)</h3>
+        <div class="faq-item">
+          <button class="faq-question">What exactly is the "80/20 data model"?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><p>With the free tier, Scotty gives you instant access to all publicly available budget records — legislative filings, transparency reports, public BIDS data. This represents roughly 20% of your agency's full financial picture. To unlock the rest, simply get licensed. We handle the full integration of your internal systems — line items, project ledgers, grant tracking — so you get 100% of the intelligence, with none of the IT headache.</p></div>
+        </div>
+      </div>
+      <div class="faq-category">
+        <h3 class="faq-cat-title">Pricing & Procurement</h3>
+        <div class="faq-item">
+          <button class="faq-question">Is Scotty available on government procurement vehicles?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><p>Yes. Scotty is available through GSA Schedule and various state cooperative purchasing agreements. The Performa Group's 20-year relationship with government procurement offices means we understand the process and can support your agency's specific contracting requirements.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is there a free tier for legislative staff?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><p>Yes. The "Verified Public Access" tier is permanently free for verified legislative staff. It provides access to the 20% public data insights for your district, with basic trend analysis and report generation—no credit card, no time limit.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-faq-ctas">
+      <h3>Still Have Questions?</h3>
+      <div class="post-faq-buttons">
+        <a href="#" class="btn btn-outline">Contact Sales</a>
+        <a href="#" class="btn btn-red">Request Technical SLA</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 6: PRICING ============ -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <h1 class="section-headline">Intelligence at Every Level.</h1>
+    <p class="pricing-sub">Start free. Scale when you're ready.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Verified Public Access</h3>
+          <div class="pricing-price">$0</div>
+          <p class="pricing-note">For Legislative Staff</p>
+        </div>
+        <ul class="pricing-features">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Full access to all public budget data for your district (~20% of the complete picture)</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Basic Trend Analysis</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Standard Report Generation</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Legislative Verification Required</li>
+        </ul>
+        <a href="#" class="btn btn-outline btn-block">Try Scotty For Free</a>
+        <p style="text-align:center; font-size:0.85rem; color:var(--text-muted); margin-top:16px; margin-bottom:0;">See what the other 80% looks like — talk to our team.</p>
+      </div>
+
+      <div class="pricing-card highlighted">
+        <span class="pricing-badge">Most Popular</span>
+        <div class="pricing-header">
+          <h3>Full Copilot Subscription</h3>
+          <div class="pricing-price">Contact Sales</div>
+          <p class="pricing-note">Agency-Wide License</p>
+        </div>
+        <ul class="pricing-features">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Secure integration of your internal data — unlocking 100% of your agency's financial intelligence</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Full Predictive Forecasting</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Custom AI Copilot Personas</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> 24/7 Priority Support</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Unlimited Scenario Planning</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="#BE2332" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> DOT/BIDS Native Integration</li>
+        </ul>
+        <a href="#" class="btn btn-red btn-block">Contact Sales for Agency-Wide License</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SITE FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="logo-icon" viewBox="0 0 512 512" width="32" height="32"><style>.fst1{fill:#fff;}</style><path class="fst1" d="M319.6,475c-20.9,17.1-52.2,13.4-52.2,13.4c40.4-6.2,44.1-20.2,44.5-22.9c3.8-31.1-75.7-48.4-121.3-39.2c-8.9,1.8-16.4,4.5-21.9,8.4c-30.7,21.7,18.6,54.7,65.8,62.4c0,0-47.4-.6-99.1-37.2c-16.8-11.9-31.3-26.5-33.7-41.6c-3.7-22.8,22.5-35.9,58.4-40.1c45.7-5.3,107.1,3.8,142.9,26.2C341.6,428.6,342.5,456.4,319.6,475"/><path class="fst1" d="M392.2,438.5c53.5-72.3-56.4-118.1-138.3-130c-44.8-6.5-85.3-4.7-117.2,3.1C74,326.8,43.9,365.1,77.1,409c0,0-41.8-31.9-43.8-88.6c-1.8-52.9,63.8-68.1,98.9-72.5c1.5-.2,2.9-.3,4.2-.5c106.1-11.4,222.1,27.5,270.9,81.8C458.7,386.3,393.6,436.9,392.2,438.5"/><path class="fst1" d="M477.3,333.8c.9-16.1,2.4-46.1-26.3-79.7c-56.8-66.3-197.1-97.8-301.6-82.7c-69.1,10-122.5,40.5-125.8,94.8c0,0-13.8-82.1,42.3-120.5c28.5-19.5,68.9-29.6,113.5-31c91.6-2.9,200.7,30.5,260.2,92.2C503.6,273.5,477.3,333.8,477.3,333.8"/><path class="fst1" d="M497.8,201.3C456.1,103.2,331.1,60.4,223.9,64c-64.6,2.2-122.7,21.2-152.1,55.1l.1-.1c0,0,17.6-44.9,90.2-70.5c27.4-9.7,60.8-13.2,96-10.7c61.3,4.4,127.9,27.5,177,69.5C494.6,158,497.8,201.3,497.8,201.3"/><path class="fst1" d="M428,76.8C397.7,57.1,359.8,41.3,317.2,32c-12.9-2.8-25.7-4.9-38.2-6.3c-28.9-3.2-56.6-2.8-81.8.8c31.5-10.5,66.2-14.3,101.6-9.8c7,.9,14.1,2.1,21.1,3.6C362.6,29.5,399.5,49.7,428,76.8"/></svg>
+          <span>Scotty AI</span>
+        </div>
+        <p class="footer-tagline">Powered by The Performa Group.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 20 20" fill="#94a3b8"><path d="M4.5 3A1.5 1.5 0 103 4.5 1.5 1.5 0 004.5 3zM3 7h3v10H3zm5.5 0H11v1.4C11.5 7.5 12.8 7 14 7c2.7 0 3 1.8 3 4v6h-3v-5.3c0-1.3 0-2.9-1.8-2.9S10.5 10 10.5 11.3V17h-3z"/></svg></a>
+          <a href="#" aria-label="X"><svg width="20" height="20" viewBox="0 0 20 20" fill="#94a3b8"><path d="M11.3 8.8L16.8 2h-1.3L10.7 8L7.3 2H2l5.8 8.4L2 18h1.3l5.1-5.9L12 18h5.3l-6-8.7zm-1.8 2.1l-.6-.8L4 3.1h2l3.8 5.4.6.8 4.8 6.9h-2l-4-5.7z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 20 20" fill="#94a3b8"><path d="M17.8 6.2s-.2-1.3-.7-1.8c-.7-.7-1.4-.7-1.8-.7C12.8 3.5 10 3.5 10 3.5s-2.8 0-5.3.2c-.4 0-1.1 0-1.8.7-.5.5-.7 1.8-.7 1.8S2 7.7 2 9.2v1.4c0 1.5.2 3 .2 3s.2 1.3.7 1.8c.7.7 1.6.7 2 .7 1.4.1 6.1.2 6.1.2s2.8 0 5.3-.2c.4 0 1.1 0 1.8-.7.5-.5.7-1.8.7-1.8s.2-1.5.2-3V9.2c0-1.5-.2-3-.2-3zM8.3 12.7V7l4.8 2.9-4.8 2.8z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="#">Budget AI</a></li>
+          <li><a href="#">Forecasting</a></li>
+          <li><a href="#">Reporting</a></li>
+          <li><a href="#">Scenario Planning</a></li>
+          <li><a href="#">BIDS/DOT Integration</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Trust</h4>
+        <ul>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#">Compliance</a></li>
+          <li><a href="#">Data Privacy</a></li>
+          <li><a href="#">SLA</a></li>
+          <li><a href="#">Trust Center</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">Contact Sales</a></li>
+          <li><a href="#">Help Desk</a></li>
+          <li><a href="#">API Docs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <img src="performa-logo.png" alt="The Performa Group" class="performa-logo-footer">
+      <p>&copy; 2026 The Performa Group, Inc. | All Rights Reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">State/Federal Compliance Statements</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="lang.js"></script>
+<script src="scroll-animations.js"></script>
+</body>
+</html>

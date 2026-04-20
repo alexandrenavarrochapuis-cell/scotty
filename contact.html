@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up — Scotty AI | The Performa Group</title>
+  <meta name="description" content="Sign up for Scotty AI and discover how enterprise budget intelligence can transform your agency's financial operations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="scotty-v2.css">
+  <link rel="stylesheet" href="scroll-animations.css">
+  <style>
+    /* ==============================
+       CONTACT PAGE — SPECIFIC STYLES
+    ============================== */
+    
+    .contact-hero {
+      padding: 60px 0 100px;
+      position: relative;
+      overflow: hidden;
+      background: var(--slate-50);
+    }
+    [data-theme="dark"] .contact-hero {
+      background: var(--slate-900);
+    }
+    
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(190,35,50,.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 60px;
+      margin-top: 40px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+    
+    /* Left Side - The Form */
+    .contact-form-col {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.05), 0 1px 3px rgba(0,0,0,.02);
+      border: 1px solid var(--slate-200);
+    }
+    [data-theme="dark"] .contact-form-col {
+      background: var(--slate-800);
+      border-color: rgba(255,255,255,.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,.3);
+    }
+    
+    .contact-header {
+      margin-bottom: 30px;
+    }
+    .contact-header h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--slate-900);
+      letter-spacing: -.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    [data-theme="dark"] .contact-header h1 { color: var(--white); }
+    
+    .contact-header p {
+      color: var(--slate-500);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    [data-theme="dark"] .contact-header p { color: var(--slate-400); }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+    
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-group label {
+      display: block;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--slate-700);
+      margin-bottom: 8px;
+    }
+    [data-theme="dark"] .form-group label { color: var(--slate-300); }
+    
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--slate-800);
+      font-family: var(--font);
+      font-size: .95rem;
+      transition: all 0.2s;
+    }
+    [data-theme="dark"] .form-group input,
+    [data-theme="dark"] .form-group select,
+    [data-theme="dark"] .form-group textarea {
+      background: rgba(15,23,42,.4);
+      border-color: rgba(255,255,255,.1);
+      color: var(--white);
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(190,35,50,.15);
+    }
+    [data-theme="dark"] .form-group input:focus,
+    [data-theme="dark"] .form-group select:focus,
+    [data-theme="dark"] .form-group textarea:focus {
+      background: var(--slate-800);
+    }
+    
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .contact-submit {
+      margin-top: 10px;
+      width: 100%;
+      padding: 14px 24px;
+      font-size: 1.05rem;
+      justify-content: center;
+    }
+    
+    .disclaimer {
+      font-size: .75rem;
+      color: var(--slate-500);
+      margin-top: 16px;
+      text-align: center;
+      line-height: 1.5;
+    }
+    
+    /* Right Side - Trust Panel */
+    .trust-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      padding-top: 20px;
+    }
+    
+    .trust-card {
+      background: transparent;
+      padding: 0;
+    }
+    
+    .trust-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: rgba(190,35,50,.1);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    
+    .trust-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--slate-900);
+      margin-bottom: 8px;
+    }
+    [data-theme="dark"] .trust-card h3 { color: var(--white); }
+    
+    .trust-card p {
+      font-size: .9rem;
+      color: var(--slate-600);
+      line-height: 1.6;
+    }
+    [data-theme="dark"] .trust-card p { color: var(--slate-400); }
+    
+    .support-divider {
+      height: 1px;
+      background: var(--slate-200);
+      margin: 10px 0;
+    }
+    [data-theme="dark"] .support-divider { background: rgba(255,255,255,.1); }
+
+  </style>
+</head>
+<body>
+
+<!-- ============ SITE HEADER ============ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <div class="logo" style="display:flex; align-items:center; gap: 12px; text-decoration:none; color:inherit;">
+      <a href="index.html" style="display:flex; align-items:center; color:inherit; text-decoration:none;" aria-label="Scotty AI Home">
+      <svg class="logo-icon" viewBox="0 0 512 512" width="40" height="40"><style>.st1{fill:#BE2332;}</style><g><defs><rect id="s1" x="101" y="376.5" width="234.1" height="120.7"/></defs><clipPath id="c1"><use xlink:href="#s1"/></clipPath><g clip-path="url(#c1)"><path class="st1" d="M319.6,475c-20.9,17.1-52.2,13.4-52.2,13.4c40.4-6.2,44.1-20.2,44.5-22.9c3.8-31.1-75.7-48.4-121.3-39.2c-8.9,1.8-16.4,4.5-21.9,8.4c-30.7,21.7,18.6,54.7,65.8,62.4c0,0-47.4-.6-99.1-37.2c-16.8-11.9-31.3-26.5-33.7-41.6c-3.7-22.8,22.5-35.9,58.4-40.1c45.7-5.3,107.1,3.8,142.9,26.2C341.6,428.6,342.5,456.4,319.6,475"/></g></g><path class="st1" d="M392.2,438.5c53.5-72.3-56.4-118.1-138.3-130c-44.8-6.5-85.3-4.7-117.2,3.1C74,326.8,43.9,365.1,77.1,409c0,0-41.8-31.9-43.8-88.6c-1.8-52.9,63.8-68.1,98.9-72.5c1.5-.2,2.9-.3,4.2-.5c106.1-11.4,222.1,27.5,270.9,81.8C458.7,386.3,393.6,436.9,392.2,438.5"/><path class="st1" d="M477.3,333.8c.9-16.1,2.4-46.1-26.3-79.7c-56.8-66.3-197.1-97.8-301.6-82.7c-69.1,10-122.5,40.5-125.8,94.8c0,0-13.8-82.1,42.3-120.5c28.5-19.5,68.9-29.6,113.5-31c91.6-2.9,200.7,30.5,260.2,92.2C503.6,273.5,477.3,333.8,477.3,333.8"/><path class="st1" d="M497.8,201.3C456.1,103.2,331.1,60.4,223.9,64c-64.6,2.2-122.7,21.2-152.1,55.1l.1-.1c0,0,17.6-44.9,90.2-70.5c27.4-9.7,60.8-13.2,96-10.7c61.3,4.4,127.9,27.5,177,69.5C494.6,158,497.8,201.3,497.8,201.3"/><path class="st1" d="M428,76.8C397.7,57.1,359.8,41.3,317.2,32c-12.9-2.8-25.7-4.9-38.2-6.3c-28.9-3.2-56.6-2.8-81.8.8c31.5-10.5,66.2-14.3,101.6-9.8c7,.9,14.1,2.1,21.1,3.6C362.6,29.5,399.5,49.7,428,76.8"/><path class="st1" d="M77.1,409c0,0-41.8-31.9-43.8-88.6c-1.8-52.9,63.8-68.1,98.9-72.5c-1.3,20.8,0,42.1,4.3,63.6C74,326.8,43.9,365.1,77.1,409"/><path class="st1" d="M23.5,266.2c0,0-13.8-82.1,42.3-120.5c28.5-19.5,68.9-29.6,113.5-31c-12,17.5-22.2,36.5-30,56.7C80.2,181.5,26.8,211.9,23.5,266.2"/><g><defs><rect id="s2" x="101" y="377.7" width="134.1" height="119.5"/></defs><clipPath id="c2"><use xlink:href="#s2"/></clipPath><g clip-path="url(#c2)"><path class="st1" d="M234.4,497.1c0,0-47.4-.6-99.1-37.2c-16.8-11.9-31.3-26.5-33.7-41.6c-3.7-22.8,22.5-35.9,58.4-40.1c8.2,16.1,18.3,32.2,30.5,48.1c-8.9,1.8-16.4,4.5-21.9,8.4C138,456.3,187.3,489.4,234.4,497.1"/></g></g><path class="st1" d="M258.1,37.8c-11.9,7.7-23.4,16.4-34.2,26.2c-64.6,2.2-122.7,21.2-152.1,55.1l.1-.1c0,0,17.6-44.9,90.2-70.5C189.6,38.8,223,35.3,258.1,37.8"/><path class="st1" d="M298.8,16.6c-6.7,2.7-13.3,5.7-19.8,9.1c-28.9-3.2-56.6-2.8-81.8.8C228.8,16,263.5,12.2,298.8,16.6"/></svg>
+      </a>
+      <div style="display:flex; flex-direction:column; align-items:flex-start; justify-content:center;">
+        <a href="index.html" style="color:inherit; text-decoration:none;"><span class="logo-text" style="line-height:0.85; font-size:1.6rem;">Scotty AI</span></a>
+        <a href="https://theperformagroup.com/" target="_blank" style="font-size:10px;font-weight:500;color:#ffffff;letter-spacing:.04em;margin-top:-3px;display:inline-flex;align-items:center;text-decoration:none;"><span class="by-branding-text" style="transform:translateY(-1px); color:#ffffff;">By</span> <img src="performa-logo.png" alt="Performa" class="performa-logo-header" style="height:10px; margin-left:4px; margin-right:0; filter:none;"></a>
+      </div>
+    </div>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="blog/index.html" class="nav-link">Blog</a>
+      <a href="contact.html" class="nav-link" style="color:var(--red);font-weight:700;">Contact</a>
+    </nav>
+    <div class="header-ctas">
+            <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+        <button class="lang-btn" data-lang="es" aria-label="Español">🇪🇸</button>
+        <button class="lang-btn" data-lang="ja" aria-label="日本語">🇯🇵</button>
+        <button class="lang-btn" data-lang="fr" aria-label="Français">🇫🇷</button>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="#" class="btn btn-outline-light" data-i18n="nav-login">Login</a>
+      <a href="contact.html" class="btn btn-red" aria-label="Request a Trial" data-i18n="nav-try">Sign Up</a>
+    </div>
+    <button class="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="contact-hero js-animations">
+    <div class="container">
+      
+      <div class="contact-grid">
+        
+        <!-- FORM COLUMN -->
+        <div class="contact-form-col reveal from-scale">
+          <div class="contact-header">
+            <h1>Sign Up for Scotty AI.</h1>
+            <p>Get started with the most comprehensive budget intelligence platform for government agencies. Our team will guide you through onboarding, integration, and your first insights.</p>
+          </div>
+          
+          <form action="#" method="POST" id="scotty-contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first_name">First Name *</label>
+                <input type="text" id="first_name" name="first_name" required placeholder="Jane">
+              </div>
+              <div class="form-group">
+                <label for="last_name">Last Name *</label>
+                <input type="text" id="last_name" name="last_name" required placeholder="Doe">
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Work Email *</label>
+                <input type="email" id="email" name="email" required placeholder="jane.doe@agency.gov">
+              </div>
+              <div class="form-group">
+                <label for="agency">Agency / Department *</label>
+                <input type="text" id="agency" name="agency" required placeholder="e.g. TX Dept of Transportation">
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="role">Your Role</label>
+                <select id="role" name="role">
+                  <option value="" disabled selected>Select Title...</option>
+                  <option value="legislator">Legislator / Elected Official</option>
+                  <option value="cfo">Chief Financial Officer</option>
+                  <option value="chief_of_staff">Chief of Staff</option>
+                  <option value="director">Agency Director / Admin</option>
+                  <option value="analyst">Financial Analyst / Comptroller</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="budget">Total Budget Size</label>
+                <select id="budget" name="budget">
+                  <option value="" disabled selected>Select Range...</option>
+                  <option value="tier1">Under $50 Million</option>
+                  <option value="tier2">$50M - $500 Million</option>
+                  <option value="tier3">$500M - $1 Billion</option>
+                  <option value="tier4">Over $1 Billion</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="system">Primary Data System Currently Used</label>
+              <select id="system" name="system">
+                <option value="" disabled selected>Select System...</option>
+                <option value="bids">BIDS</option>
+                <option value="oracle">Oracle NetSuite / ERP</option>
+                <option value="sap">SAP</option>
+                <option value="workday">Workday</option>
+                <option value="excel">Excel / Legacy Spreadsheets</option>
+                <option value="other">Custom / Internal Framework</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="inquiry_type">What are you looking for?</label>
+              <select id="inquiry_type" name="inquiry_type" required>
+                <option value="trial" selected>Start a Free Trial</option>
+                <option value="demo">Schedule a Live Demo</option>
+                <option value="pricing">Pricing & Institutional Licensing</option>
+                <option value="integration">BIDS Integration & Onboarding</option>
+                <option value="general">General Inquiry</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Additional Information</label>
+              <textarea id="message" name="message" placeholder="Tell us about your agency's budget challenges or what you're hoping to achieve with Scotty AI..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-red contact-submit">Sign Up</button>
+            <p class="disclaimer">By signing up, you agree to our <a href="#" style="color:var(--red);text-decoration:underline;">Privacy Policy</a> and <a href="#" style="color:var(--red);text-decoration:underline;">Terms of Service</a>. Your data is protected under enterprise-grade security protocols.</p>
+          </form>
+        </div>
+        
+        <!-- TRUST SIDEBAR -->
+        <div class="trust-panel reveal from-right stagger-2">
+          
+          <div class="trust-card">
+            <div class="trust-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3>Enterprise-Grade Security</h3>
+            <p>All data is processed through AES-256 encryption and stored in a private cloud environment within your jurisdiction. Fully compliant with state and federal data handling regulations.</p>
+          </div>
+          
+          <div class="trust-card">
+            <div class="trust-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+            <h3>Dedicated Onboarding Team</h3>
+            <p>With 20+ years of experience building BIDS and government budget frameworks, our deployment team integrates Scotty AI into your existing systems safely and efficiently.</p>
+          </div>
+          
+          <div class="support-divider"></div>
+          
+          <div class="trust-card">
+            <h3>Already a Client?</h3>
+            <p style="margin-bottom:8px;">Reach out to our support team for technical assistance, compliance documentation, or account management.</p>
+            <a href="mailto:support@performa-scotty.ai" style="color:var(--red);font-weight:700;display:inline-flex;align-items:center;gap:6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              support@performa-scotty.ai
+            </a>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="logo-icon" viewBox="0 0 512 512" width="32" height="32"><style>.fst1{fill:#fff;}</style><path class="fst1" d="M319.6,475c-20.9,17.1-52.2,13.4-52.2,13.4c40.4-6.2,44.1-20.2,44.5-22.9c3.8-31.1-75.7-48.4-121.3-39.2c-8.9,1.8-16.4,4.5-21.9,8.4c-30.7,21.7,18.6,54.7,65.8,62.4c0,0-47.4-.6-99.1-37.2c-16.8-11.9-31.3-26.5-33.7-41.6c-3.7-22.8,22.5-35.9,58.4-40.1c45.7-5.3,107.1,3.8,142.9,26.2C341.6,428.6,342.5,456.4,319.6,475"/><path class="fst1" d="M392.2,438.5c53.5-72.3-56.4-118.1-138.3-130c-44.8-6.5-85.3-4.7-117.2,3.1C74,326.8,43.9,365.1,77.1,409c0,0-41.8-31.9-43.8-88.6c-1.8-52.9,63.8-68.1,98.9-72.5c1.5-.2,2.9-.3,4.2-.5c106.1-11.4,222.1,27.5,270.9,81.8C458.7,386.3,393.6,436.9,392.2,438.5"/><path class="fst1" d="M477.3,333.8c.9-16.1,2.4-46.1-26.3-79.7c-56.8-66.3-197.1-97.8-301.6-82.7c-69.1,10-122.5,40.5-125.8,94.8c0,0-13.8-82.1,42.3-120.5c28.5-19.5,68.9-29.6,113.5-31c91.6-2.9,200.7,30.5,260.2,92.2C503.6,273.5,477.3,333.8,477.3,333.8"/><path class="fst1" d="M497.8,201.3C456.1,103.2,331.1,60.4,223.9,64c-64.6,2.2-122.7,21.2-152.1,55.1l.1-.1c0,0,17.6-44.9,90.2-70.5c27.4-9.7,60.8-13.2,96-10.7c61.3,4.4,127.9,27.5,177,69.5C494.6,158,497.8,201.3,497.8,201.3"/><path class="fst1" d="M428,76.8C397.7,57.1,359.8,41.3,317.2,32c-12.9-2.8-25.7-4.9-38.2-6.3c-28.9-3.2-56.6-2.8-81.8.8c31.5-10.5,66.2-14.3,101.6-9.8c7,.9,14.1,2.1,21.1,3.6C362.6,29.5,399.5,49.7,428,76.8"/></svg>
+          <span>Scotty AI</span>
+        </div>
+        <p class="footer-tagline">Powered by The Performa Group.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 20 20" fill="#94a3b8"><path d="M4.5 3A1.5 1.5 0 103 4.5 1.5 1.5 0 004.5 3zM3 7h3v10H3zm5.5 0H11v1.4C11.5 7.5 12.8 7 14 7c2.7 0 3 1.8 3 4v6h-3v-5.3c0-1.3 0-2.9-1.8-2.9S10.5 10 10.5 11.3V17h-3z"/></svg></a>
+          <a href="#" aria-label="X"><svg width="20" height="20" viewBox="0 0 20 20" fill="#94a3b8"><path d="M11.3 8.8L16.8 2h-1.3L10.7 8L7.3 2H2l5.8 8.4L2 18h1.3l5.1-5.9L12 18h5.3l-6-8.7zm-1.8 2.1l-.6-.8L4 3.1h2l3.8 5.4.6.8 4.8 6.9h-2l-4-5.7z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 20 20" fill="#94a3b8"><path d="M17.8 6.2s-.2-1.3-.7-1.8c-.7-.7-1.4-.7-1.8-.7C12.8 3.5 10 3.5 10 3.5s-2.8 0-5.3.2c-.4 0-1.1 0-1.8.7-.5.5-.7 1.8-.7 1.8S2 7.7 2 9.2v1.4c0 1.5.2 3 .2 3s.2 1.3.7 1.8c.7.7 1.6.7 2 .7 1.4.1 6.1.2 6.1.2s2.8 0 5.3-.2c.4 0 1.1 0 1.8-.7.5-.5.7-1.8.7-1.8s.2-1.5.2-3V9.2c0-1.5-.2-3-.2-3zM8.3 12.7V7l4.8 2.9-4.8 2.8z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="#">Budget AI</a></li>
+          <li><a href="#">Forecasting</a></li>
+          <li><a href="#">Reporting</a></li>
+          <li><a href="#">Scenario Planning</a></li>
+          <li><a href="#">BIDS Integration</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Trust</h4>
+        <ul>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#">Compliance</a></li>
+          <li><a href="#">Data Privacy</a></li>
+          <li><a href="#">SLA</a></li>
+          <li><a href="#">Trust Center</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="contact.html">Sign Up</a></li>
+          <li><a href="#">Help Desk</a></li>
+          <li><a href="#">API Docs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <img src="performa-logo.png" alt="The Performa Group" class="performa-logo-footer">
+      <p>&copy; 2026 The Performa Group, Inc. | All Rights Reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">State/Federal Compliance Statements</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="lang.js"></script>
+<script src="scroll-animations.js"></script>
+<script>
+  // Simple form submission bypass for static demo
+  document.getElementById('scotty-contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.contact-submit');
+    const originalText = btn.innerText;
+    btn.innerText = 'Sign Up Successful ✓';
+    btn.style.background = '#059669';
+    btn.style.borderColor = '#059669';
+    
+    setTimeout(() => {
+      this.reset();
+      btn.innerText = originalText;
+      btn.style.background = 'var(--red)';
+      btn.style.borderColor = 'var(--red)';
+    }, 4000);
+  });
+</script>
+</body>
+</html>
